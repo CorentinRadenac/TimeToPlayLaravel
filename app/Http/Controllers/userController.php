@@ -3,54 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Personne;
+use App\User;
 
-class personneController extends Controller
+class userController extends Controller
 {
     public function index()
     {
-    	return Personne::all();
+    	return User::all();
     }
 
 
      public function show($id)
     {
-    	return Personne::find($id);
+    	return User::find($id);
     }
 
     public function destroy($id)
     {
-        return Personne::destroy($id);
+        return User::destroy($id);
     }
 
    public function store(Request $request)
     {
-        if((Personne::where('email',$request->email)->count()) > 0 )
+        if((User::where('email',$request->email)->count()) > 0 )
         {
             //mail deja utilisé
             return abort(400, 'Mail indisponible');
         }
         else
         {
-            $personne = new Personne();
+            $personne = new User();
             $personne->nom = $request->nom;
             $personne->prenom = $request->prenom;
             $personne->age = $request->age;
             $personne->email = $request->email;
-            $personne->motDePasse = $request->motDePasse;
+            $personne->password = $request->password;
             $personne->save();
-            return Personne::find($personne->id);
+            return User::find($personne->id);
         }       
     }
 
     public function update(Request $request, $id)
     {
-    	$personne = Personne::find($id);
+    	$personne = User::find($id);
     	$personne->nom = $request->nom;
         $personne->prenom = $request->prenom;
 		$personne->age = $request->age;
 		$personne->email = $request->email;
-        $personne->motDePasse = $request->motDePasse;
+        $personne->password = $request->password;
         $personne->save();
         return $personne;
     } 

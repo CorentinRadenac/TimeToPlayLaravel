@@ -28,7 +28,7 @@ class evenementController extends Controller
             $evenement = new Evenements();
             $evenement->nbPersMax = $request->nbPersMax;
             $evenement->jeu = $request->jeu;
-            $evenement->description = $request->desctiption;
+            $evenement->description = $request->description;
             $evenement->save();
             return Evenements::find($evenement->id);       
     }
@@ -38,7 +38,7 @@ class evenementController extends Controller
     	$evenement = Evenements::find($id);
         $evenement->nbPersMax = $request->nbPersMax;
         $evenement->jeu = $request->jeu;
-        $evenement->description = $request->desctiption;
+        $evenement->description = $request->description;
         $evenement->save();
         return $evenement;
     }

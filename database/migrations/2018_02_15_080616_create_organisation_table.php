@@ -19,10 +19,10 @@ class CreateOrganisationTable extends Migration
             $table->string('lieu', 200);
             $table->string('NomVille');
             $table->integer('codePostal');
-            $table->integer('idPersonne')->unsigned();
+            $table->integer('idUser')->unsigned();
             $table->timestamps();
 
-            $table->foreign('idPersonne')->references('id')->on('personnes');
+            $table->foreign('idUser')->references('id')->on('users');
         });
     }
 

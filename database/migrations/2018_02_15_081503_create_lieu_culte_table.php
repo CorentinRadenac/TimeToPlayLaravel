@@ -13,7 +13,7 @@ class CreateLieuCulteTable extends Migration
      */
     public function up()
     {
-        Schema::create('lieu_cultes', function (Blueprint $table) {
+        Schema::create('lieu__cultes', function (Blueprint $table) {
             $table->increments('idLieuCulte');
             $table->string('adresse');
             $table->dateTimeTz('prochaineDate');
