@@ -16,7 +16,7 @@ class CreateOrganisationTable extends Migration
         Schema::create('organisations', function (Blueprint $table) {
             $table->increments('idOrga');
             $table->dateTime('dateEtHeures');
-            $table->string('lieu', 200);
+            $table->string('adresse', 200);
             $table->string('NomVille');
             $table->integer('codePostal');
             $table->integer('idUser')->unsigned();

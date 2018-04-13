@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Organisation;
+use App\User;
 
 class organisationController extends Controller
 {
     public function index()
     {
-    	return Organisation::all();
+        return view('ajoutEvent');
+    	//return Organisation::all();
     }
 
 
@@ -26,19 +29,21 @@ class organisationController extends Controller
    public function store(Request $request)
     {
             $organisation = new Organisation();
+            $user = Auth::user();
             $organisation->dateEtHeures = $request->dateEtHeures;
-            $organisation->lieu = $request->lieu;
+            $organisation->adresse = $request->adresse;
             $organisation->NomVille = $request->NomVille;
             $organisation->CodePostal = $request->CodePostal;
+            $organisation->idUser = $user->id;
             $organisation->save();
-            return Organisation::find($organisation->id);       
+            return view('creeEvent', ['organisation' => $organisation]);  // return l'id organisation 
     }
 
     public function update(Request $request, $id)
     {
     	$organisation = Organisation::find($id);
         $organisation->dateEtHeures = $request->dateEtHeures;
-        $organisation->lieu = $request->lieu;
+        $organisation->adresse = $request->adresse;
         $organisation->NomVille = $request->NomVille;
 		$organisation->CodePostal = $request->CodePostal;
         $organisation->save();

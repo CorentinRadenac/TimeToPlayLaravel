@@ -9,7 +9,7 @@ class jeuController extends Controller
 {
     public function index()
     {
-    	return Jeu::all();
+    	return view('jeu');
     }
 
 
@@ -26,8 +26,10 @@ class jeuController extends Controller
    public function store(Request $request)
     {
             $jeu = new Jeu();
+            $jeu->nomDuJeu = $request->nomDuJeu;
+            $jeu->nbrPersonneMini = $request->nbrPersonneMini;
             $jeu->nbPersMax = $request->nbPersMax;
-            $jeu->libelle = $request->libelle;
+            $jeu->descriptionJeu = $request->descriptionJeu;
             $jeu->save();
             return Jeu::find($evenement->id);       
     }
@@ -35,8 +37,10 @@ class jeuController extends Controller
     public function update(Request $request, $id)
     {
     	$jeu = Jeu::find($id);
+        $jeu->nomDuJeu = $request->nomDuJeu;
+        $jeu->nbrPersonneMini = $request->nbrPersonneMini;
         $jeu->nbPersMax = $request->nbPersMax;
-        $jeu->libelle = $request->libelle;
+        $jeu->descriptionJeu = $request->descriptionJeu;
         $jeu->save();
         return $jeu;
     }

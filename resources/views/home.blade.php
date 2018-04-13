@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Vous ete connecter!
+                    <td><button onclick="location.href='{{ url('organisation') }}'">Organiser un evenement</button></td>
+                    <td><button onclick="location.href='{{ url('jeu') }}'">Le brocabrac des jeux</button></td>
                 </div>
             </div>
         </div>

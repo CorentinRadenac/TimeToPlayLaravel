@@ -15,12 +15,12 @@ class CreateJeuxTable extends Migration
     {
         Schema::create('jeus', function (Blueprint $table) {
             $table->increments('idJeux');
+            $table->string('nomDuJeu');
+            $table->integer('nbrPersonneMini');
             $table->integer('nbrPersonneMax');
-            $table->string('libelle', 400);
-            $table->integer('idTypeJeu')->unsigned();
+            $table->text('descriptionJeu', 400);
             $table->timestamps();
 
-            $table->foreign('idtypeJeu')->references('idType')->on('types');
         });
     }
 

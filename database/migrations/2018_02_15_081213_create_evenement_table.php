@@ -15,9 +15,10 @@ class CreateEvenementTable extends Migration
     {
         Schema::create('evenements', function (Blueprint $table) {
             $table->increments('idEvenement');
+            $table->integer('nbPersMini');
             $table->integer('nbPersMax');
             $table->string('jeu', 300);
-            $table->string('description', 500);
+            $table->string('descriptionEvent', 500);
             $table->integer('idOrga')->unsigned();
             $table->timestamps();
 

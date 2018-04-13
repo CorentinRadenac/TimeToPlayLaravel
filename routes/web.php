@@ -19,10 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 //Personne 
 Route::get('/user', 'userController@index');
 Route::get('/user/{id}','userController@show');
@@ -52,12 +48,6 @@ Route::post('/lieuCulte','lieuCulteController@store');
 Route::put('/lieuCulte/{id}','lieuCulteController@update');
 Route::delete('/lieuCulte/{id}','lieuCulteController@destroy');
 
-//Type
-Route::get('/type', 'typeController@index');
-Route::get('/type/{id}','typeController@show');
-Route::post('/type','typeController@store');
-Route::put('/type/{id}','typeController@update');
-Route::delete('/type/{id}','typeController@destroy');
 
 //Jeux
 Route::get('/jeu', 'jeuController@index');
