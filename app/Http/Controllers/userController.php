@@ -13,11 +13,6 @@ class userController extends Controller
     }
 
 
-     public function show($id)
-    {
-    	return User::find($id);
-    }
-
     public function destroy($id)
     {
         return User::destroy($id);

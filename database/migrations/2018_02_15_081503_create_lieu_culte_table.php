@@ -14,7 +14,7 @@ class CreateLieuCulteTable extends Migration
     public function up()
     {
         Schema::create('lieu__cultes', function (Blueprint $table) {
-            $table->increments('idLieuCulte');
+            $table->increments('id');
             $table->string('adresse');
             $table->dateTimeTz('prochaineDate');
             $table->string('NomVille');
@@ -22,7 +22,7 @@ class CreateLieuCulteTable extends Migration
             $table->integer('idEvenementCulte')->unsigned();
             $table->timestamps();
 
-            $table->foreign('idEvenementCulte')->references('idEvenement')->on('evenements');
+            $table->foreign('idEvenementCulte')->references('id')->on('evenements');
         });
     }
 

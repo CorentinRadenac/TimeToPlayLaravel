@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Jeu extends Model
 {
 	protected $fillable = [
-	 'nomDuJeu', 'nbrPersonneMini', 'nbrPersonneMax', 'descriptionJeu'
+	 'nomDuJeu', 'urlImage', 'nbrPersonneMini', 'nbrPersonneMax', 'descriptionJeu'
 ];
 }

@@ -14,11 +14,6 @@ class evenementController extends Controller
     }
 
 
-    public function show($id)
-    {
-    	return Evenements::find($id);
-    }
-
     public function destroy($id)
     {
         return Evenements::destroy($id);
@@ -33,7 +28,7 @@ class evenementController extends Controller
             $evenement->descriptionEvent = $request->descriptionEvent;
             $evenement->idOrga =$request->idOrga;
             $evenement->save();
-            return Evenements::all();       
+            return redirect()->route('home')->with('message', 'Evenement crée. Retrouvez le dans votre rubrique pour le modifier');      
     }
 
     public function update(Request $request, $id)

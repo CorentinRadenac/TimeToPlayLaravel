@@ -13,8 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <td><button onclick="location.href='{{ url('organisation') }}'">Organiser un evenement</button></td>
-                    <td><button onclick="location.href='{{ url('jeu') }}'">Le brocabrac des jeux</button></td>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }} 
+                    </div>
+                    @endif
+                    <td><button class="btn btn-primary" onclick="location.href='{{ url('ajoutEvent') }}'">Organiser un evenement</button></td>
+                    <td><button class="btn btn-primary" onclick="location.href='{{ url('jeu') }}'">Le brocabrac des jeux</button></td>
                 </div>
             </div>
         </div>

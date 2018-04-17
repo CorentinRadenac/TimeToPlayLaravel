@@ -11,28 +11,30 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home_path', 'uses' => function () {
     return view('welcome');
-});
+}]);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::view('/ajoutJeu', 'ajoutJeu');
+Route::view('/ajoutEvent', 'ajoutEvent');
+Route::view('/vosEvenements', 'vosEvenements');
 
 //Personne 
 Route::get('/user', 'userController@index');
-Route::get('/user/{id}','userController@show');
 Route::post('/user','userController@store');
 Route::put('/user/{id}','userController@update');
 Route::delete('/user/{id}','userController@destroy');
 
 //Organisation
 
-Route::get('/organisation', 'organisationController@index');
-Route::get('/organisation/{id}','organisationController@show');
+Route::get('/organisation', 'organisationController@index')->name('organisation.affiche');
 Route::post('/organisation','organisationController@store');
-Route::put('/organisation/{id}','organisationController@update');
-Route::delete('/organisation/{id}','organisationController@destroy');
+//Route::put('/organisation/{id}','organisationController@update');
+// Route::delete('/organisation/{id}','organisationController@destroy')->name('organisation.destroy');
+Route::get('/organisation/delete/{id}','organisationController@destroy')->name('organisation.destroy');
 
 //Evenement
 Route::get('/evenement', 'evenementController@index');
@@ -43,15 +45,13 @@ Route::delete('/evenement/{id}','evenementController@destroy');
 
 //Lieux_Culte
 Route::get('/lieuCulte', 'lieuCulteController@index');
-Route::get('/lieuCulte/{id}','lieuCulteController@show');
 Route::post('/lieuCulte','lieuCulteController@store');
 Route::put('/lieuCulte/{id}','lieuCulteController@update');
 Route::delete('/lieuCulte/{id}','lieuCulteController@destroy');
 
 
 //Jeux
-Route::get('/jeu', 'jeuController@index');
-Route::get('/jeu/{id}','jeuController@show');
+Route::get('/jeu', 'jeuController@index');;
 Route::post('/jeu','jeuController@store');
 Route::put('/jeu/{id}','jeuController@update');
 Route::delete('/jeu/{id}','jeuController@destroy');

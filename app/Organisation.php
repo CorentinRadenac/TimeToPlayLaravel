@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Organisation extends Model
 {
 	protected $fillable = [
-	'dateEtHeures', 'adresse', 'NomVille', 'codePostal', 'idUser', 'idOrga'
+	'dateEtHeures', 'adresse', 'NomVille', 'codePostal', 'idUser', 'id'
 ];
 }

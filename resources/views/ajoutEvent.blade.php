@@ -5,23 +5,32 @@
 <div class="form-group">
       {!! Form::open(['url' => 'organisation']) !!}
       <div class='form-group'>
-        {!! Form::label('title', 'Selection de l heures et la date') !!}
-        {!! Form::date('dateEtHeures', \Carbon\Carbon::now() , ['required' => true, 'class' => 'form-control']) !!}
+        <label for="dateEtHeures">Selection de l'heures et de la date</label>
+        <!-- {!! Form::label('title', 'Selection de l heures et la date') !!}  -->
+        <input class="form-control" type="date" name="dateEtHeures" required>
+        <!-- {!! Form::date('dateEtHeures', \Carbon\Carbon::now() , ['required' => true, 'class' => 'form-control']) !!} -->
     </div>
     <div class='form-group'>
-        {!! Form::label('title', 'Selection de l adresse') !!}
-        {!! Form::text('adresse' ,null, ['required' => true])!!}
+        <label for="adresse">Selection de l'adresse</label>
+      <!--  {!! Form::label('title', 'Selection de l adresse') !!} -->
+        <input class="form-control" type="text" name="adresse" required>
+       <!-- {!! Form::text('adresse' ,null, ['required' => true])!!} -->
     </div>
     <div class='form-group'>
-        {!! Form::label('title', 'Selection de la ville') !!}
-        {!! Form::text('NomVille' ,null, ['required' => true])!!}
+      <label for="NomVille">Selection de la ville</label>
+        <!-- {!! Form::label('title', 'Selection de la ville') !!}
+        {!! Form::text('NomVille' ,null, ['required' => true])!!} -->
+      <input class="form-control" type="text" name="NomVille" required>
     </div>
     <div class='form-group'>
-        {!! Form::label('title', 'Code postal') !!}
-        {!! Form::number('CodePostal' ,null, ['required' => true])!!}
+      <label for="CodePostal">Code Postal</label>
+       <!-- {!! Form::label('title', 'Code postal') !!}
+        {!! Form::number('CodePostal' ,null, ['required' => true])!!} -->
+      <input class="form-control" type="number" name="CodePostal" required>
     </div>
     <div class='form-group'>
-        {!! Form::submit('Passer a l étape 2 !') !!}
+        <input class="btn btn-success" type="submit" value="Passer a l'etape 2">
+       <!-- {!! Form::submit('Passer a l étape 2 !') !!} -->
     </div>
 
     {!! Form::close() !!}

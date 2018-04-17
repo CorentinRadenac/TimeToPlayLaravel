@@ -9,14 +9,11 @@ class jeuController extends Controller
 {
     public function index()
     {
-    	return view('jeu');
+        $jeus=jeu::all();
+        return view('jeu', compact('jeus')); 
+
     }
 
-
-    public function show($id)
-    {
-    	return Jeu::find($id);
-    }
 
     public function destroy($id)
     {
@@ -27,11 +24,12 @@ class jeuController extends Controller
     {
             $jeu = new Jeu();
             $jeu->nomDuJeu = $request->nomDuJeu;
+            $jeu->urlImage = $request->urlImage;
             $jeu->nbrPersonneMini = $request->nbrPersonneMini;
-            $jeu->nbPersMax = $request->nbPersMax;
+            $jeu->nbrPersonneMax = $request->nbrPersonneMax;
             $jeu->descriptionJeu = $request->descriptionJeu;
             $jeu->save();
-            return Jeu::find($evenement->id);       
+            return redirect()->route('home')->with('message', 'Jeu ajouté, vous le verrez dorénavant visible, merci');   
     }
 
     public function update(Request $request, $id)
@@ -39,7 +37,7 @@ class jeuController extends Controller
     	$jeu = Jeu::find($id);
         $jeu->nomDuJeu = $request->nomDuJeu;
         $jeu->nbrPersonneMini = $request->nbrPersonneMini;
-        $jeu->nbPersMax = $request->nbPersMax;
+        $jeu->nbrPersonneMax = $request->nbrPersonneMax;
         $jeu->descriptionJeu = $request->descriptionJeu;
         $jeu->save();
         return $jeu;

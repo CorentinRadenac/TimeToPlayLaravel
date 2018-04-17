@@ -12,12 +12,6 @@ class lieuCulteController extends Controller
     	return Lieu_Culte::all();
     }
 
-
-    public function show($id)
-    {
-    	return Lieu_Culte::find($id);
-    }
-
     public function destroy($id)
     {
         return Lieu_Culte::destroy($id);

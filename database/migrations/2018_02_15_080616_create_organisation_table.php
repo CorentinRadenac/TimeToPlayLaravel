@@ -14,7 +14,7 @@ class CreateOrganisationTable extends Migration
     public function up()
     {
         Schema::create('organisations', function (Blueprint $table) {
-            $table->increments('idOrga');
+            $table->increments('id');
             $table->dateTime('dateEtHeures');
             $table->string('adresse', 200);
             $table->string('NomVille');
@@ -22,7 +22,7 @@ class CreateOrganisationTable extends Migration
             $table->integer('idUser')->unsigned();
             $table->timestamps();
 
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

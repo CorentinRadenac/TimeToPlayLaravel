@@ -6,24 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Organisation;
 use App\User;
+use App\Evenements;
 
 class organisationController extends Controller
 {
     public function index()
     {
-        return view('ajoutEvent');
-    	//return Organisation::all();
+        //return view('ajoutEvent');
+    	$organisations = Organisation::where('idUser', Auth::user()->id)->get();
+        return view('vosEvenements', compact('organisations'));
     }
 
-
-    public function show($id)
-    {
-    	return Organisation::find($id);
-    }
 
     public function destroy($id)
     {
-        return Organisation::destroy($id);
+
+        Organisation::destroy($id);
+        //$organisation->delete();
+
+        return redirect()->route("organisation.affiche");
+
     }
 
    public function store(Request $request)
@@ -33,7 +35,7 @@ class organisationController extends Controller
             $organisation->dateEtHeures = $request->dateEtHeures;
             $organisation->adresse = $request->adresse;
             $organisation->NomVille = $request->NomVille;
-            $organisation->CodePostal = $request->CodePostal;
+            $organisation->codePostal = $request->CodePostal;
             $organisation->idUser = $user->id;
             $organisation->save();
             return view('creeEvent', ['organisation' => $organisation]);  // return l'id organisation 
@@ -45,7 +47,7 @@ class organisationController extends Controller
         $organisation->dateEtHeures = $request->dateEtHeures;
         $organisation->adresse = $request->adresse;
         $organisation->NomVille = $request->NomVille;
-		$organisation->CodePostal = $request->CodePostal;
+		$organisation->codePostal = $request->CodePostal;
         $organisation->save();
         return $organisation;
     }

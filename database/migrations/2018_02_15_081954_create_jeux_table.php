@@ -14,8 +14,9 @@ class CreateJeuxTable extends Migration
     public function up()
     {
         Schema::create('jeus', function (Blueprint $table) {
-            $table->increments('idJeux');
+            $table->increments('id');
             $table->string('nomDuJeu');
+            $table->string('urlImage');
             $table->integer('nbrPersonneMini');
             $table->integer('nbrPersonneMax');
             $table->text('descriptionJeu', 400);

@@ -14,7 +14,7 @@ class CreateEvenementTable extends Migration
     public function up()
     {
         Schema::create('evenements', function (Blueprint $table) {
-            $table->increments('idEvenement');
+            $table->increments('id');
             $table->integer('nbPersMini');
             $table->integer('nbPersMax');
             $table->string('jeu', 300);
@@ -22,7 +22,7 @@ class CreateEvenementTable extends Migration
             $table->integer('idOrga')->unsigned();
             $table->timestamps();
 
-            $table->foreign('idOrga')->references('idOrga')->on('organisations');
+            $table->foreign('idOrga')->references('id')->on('organisations')->onDelete('cascade');
         });
     }
 
