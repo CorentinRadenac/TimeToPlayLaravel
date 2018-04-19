@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/ajoutJeu', 'ajoutJeu');
 Route::view('/ajoutEvent', 'ajoutEvent');
 Route::view('/vosEvenements', 'vosEvenements');
+Route::view('/infoEvenements', 'infoEvenements');
 
 //Personne 
 Route::get('/user', 'userController@index');
@@ -30,7 +31,8 @@ Route::delete('/user/{id}','userController@destroy');
 
 //Organisation
 
-Route::get('/organisation', 'organisationController@index')->name('organisation.affiche');
+Route::get('/organisation', 'organisationController@index');
+Route::get('/organisationAll', 'organisationController@indexall');
 Route::post('/organisation','organisationController@store');
 //Route::put('/organisation/{id}','organisationController@update');
 // Route::delete('/organisation/{id}','organisationController@destroy')->name('organisation.destroy');
@@ -38,7 +40,7 @@ Route::get('/organisation/delete/{id}','organisationController@destroy')->name('
 
 //Evenement
 Route::get('/evenement', 'evenementController@index');
-Route::get('/evenement/{id}','evenementController@show');
+Route::get('/evenement/{id}','evenementController@show')->name('evenement.info');
 Route::post('/evenement','evenementController@store');
 Route::put('/evenement/{id}','evenementController@update');
 Route::delete('/evenement/{id}','evenementController@destroy');

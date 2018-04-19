@@ -18,6 +18,13 @@ class evenementController extends Controller
     {
         return Evenements::destroy($id);
     }
+    public function show($id)
+    {
+        /*$evenements = Evenements::table("evenements")
+        ->where('idOrga', $id)
+        ->get(); Retourner l'evenement selectionner avec idOrga */
+        return view('infoEvenements'); 
+    }
 
    public function store(Request $request) // reussire a passer en paramétre l'id Orga 
     {

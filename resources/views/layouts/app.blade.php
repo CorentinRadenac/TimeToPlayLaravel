@@ -58,15 +58,15 @@
                                                      document.getElementById('logout-form').submit();">
                                             Déconnexion
                                         </a>
-                                        <a
+
+                                       <a
                                             onclick="location.href='{{ url('organisation') }}'">
                                             Vos évenements
+                                        </a> 
+                                        <a 
+                                            onclick="location.href='{{ url('organisationAll') }}'">
+                                            Tout les évenements
                                         </a>
-                                        <a
-                                            onclick="location.href='{{ url('organisation') }}'">Tout les évenements
-                                         </a>
-
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

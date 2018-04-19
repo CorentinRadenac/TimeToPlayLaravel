@@ -16,6 +16,11 @@ class organisationController extends Controller
     	$organisations = Organisation::where('idUser', Auth::user()->id)->get();
         return view('vosEvenements', compact('organisations'));
     }
+    public function indexall()
+    {
+        $organisations = Organisation::all();
+        return view('toutLesEvenements', compact('organisations'));
+    }
 
 
     public function destroy($id)
@@ -24,7 +29,7 @@ class organisationController extends Controller
         Organisation::destroy($id);
         //$organisation->delete();
 
-        return redirect()->route("organisation.affiche");
+        return redirect()->route('home')->with('message', 'Evenement Supprimé.'); 
 
     }
 
