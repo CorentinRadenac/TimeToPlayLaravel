@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Evenements;
 use App\Organisation;
+use DB;
 
 class evenementController extends Controller
 {
@@ -20,10 +21,9 @@ class evenementController extends Controller
     }
     public function show($id)
     {
-        /*$evenements = Evenements::table("evenements")
-        ->where('idOrga', $id)
-        ->get(); Retourner l'evenement selectionner avec idOrga */
-        return view('infoEvenements'); 
+         $evenements = DB::table('evenements')->where('idOrga', '=', $id)->get();
+        return view('infoEvenements',['evenements' => $evenements]);
+       
     }
 
    public function store(Request $request) // reussire a passer en paramétre l'id Orga 
